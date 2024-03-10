@@ -1,6 +1,6 @@
 While reading through the `langchain_core.runnable.base` code, the ability to create [`Runnable` objects](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/core/langchain_core/runnables/base.py#L103) out of [`RunnableLike` objects](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/core/langchain_core/runnables/base.py#L4368) caught my eye.
 
-*This article is also viewable at*[https://github.com/WarrenTheRabbit/TIL/](https://github.com/WarrenTheRabbit/TIL/).
+*This article is also viewable at* [hashnode]([https://github.com/WarrenTheRabbit/TIL/](https://warrenmarkham.hashnode.dev/til-about-runnablelike-objects)).
 
 ---
 
