@@ -1,8 +1,10 @@
 While reading through the `langchain_core.runnable.base` code, the ability to create [`Runnable` objects](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/core/langchain_core/runnables/base.py#L103) out of [`RunnableLike` objects](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/core/langchain_core/runnables/base.py#L4368) caught my eye.
 
+*This article is also viewable at*[https://github.com/WarrenTheRabbit/TIL/](https://github.com/WarrenTheRabbit/TIL/).
+
 ---
 
-### What is LangChain?
+## What is LangChain?
 
 [LangChain is a framework for developing applications powered by language models.](https://github.com/langchain-ai/langchain/tree/master?tab=readme-ov-file#-what-is-langchain)
 
@@ -19,6 +21,8 @@ Since the 0.1 release, `langchain` consists of three packages:
 | `langchain_community` | third party integrations |
 
 ---
+
+## What are Runnable objects?
 
 ### `Runnable` objects are functions
 
@@ -47,7 +51,7 @@ class Runnable(Generic[Input, Output], ABC):
 
 But a [`Runnable`](https://api.python.langchain.com/en/stable/runnables/langchain_core.runnables.base.Runnable.html#langchain-core-runnables-base-runnable) is also a protocol in the LangChain ecosystem. This is an important perspective to keep in mind. `Runnable` objects are the lifeblood of the LangChain ecosystem.
 
-From an ecosystem point of view, a `Runnable` [is a unit of work that can be invoked, batched, streamed, transformed and composed.](https://api.python.langchain.com/en/latest/runnables/langchain_core.runnables.base.Runnable.html)
+From an ecosystem point of view, a `Runnable`[is a unit of work that can be invoked, batched, streamed, transformed and composed.](https://api.python.langchain.com/en/latest/runnables/langchain_core.runnables.base.Runnable.html)
 
 In other words, `Runnable` objects expose methods that a) the LangChain ecosystem does work with and which b) client code can use to leverage aspects of the LangChain ecosystem.
 
@@ -70,11 +74,13 @@ But I know I have only seen the tip of the iceberg.
 
 ---
 
+## Exploring RunnableLike objects
+
 ### `RunnableLike` objects can become `Runnable` objects
 
 If an object is `RunnableLike`, it can augmented by the `Runnable` protocol.
 
-[As the typing definitions show](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/core/langchain_core/runnables/base.py#L4368C1-L4375C2), `RunnableLike` objects must share the same input-output structure of `Runnable` objects:
+[As the typing definitions show](https://github.com/langchain-ai/langchain/blob/ddaf9de169e629ab3c56a76b2228d7f67054ef04/libs/core/langchain_core/runnables/base.py#L4368C1-L4375C2), `RunnableLike` objects must share the same input-output structure as `Runnable` objects:
 
 ```python
 RunnableLike = Union[
@@ -114,7 +120,7 @@ def coerce_to_runnable(thing: RunnableLike) -> Runnable[Input, Output]:
         )
 ```
 
-For example, a `Callable` 'thing' with the correct input-output behaviours is a `RunnableLike`. Therefore, when coerced to a `RunnableLambda`, it is augmented with the `Runnable` protocol's toolkit and methods of use.
+For example, a `Callable` 'thing' with the correct input-output behaviours is a `RunnableLike`. Therefore, it can be coerced to a `RunnableLambda`. When it is, it is augmented with the `Runnable` protocol's toolkit and gains access to its mechanism of use (imperative and declarative).
 
 ---
 
