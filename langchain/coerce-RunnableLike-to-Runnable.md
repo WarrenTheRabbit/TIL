@@ -28,7 +28,7 @@ Since the 0.1 release, `langchain` consists of three packages:
 
 From one perspective, a `Runnable` is a function: input goes in and input comes out.
 
-```bash
+```mermaid
 graph TB
 subgraph A Runnable is a function
     input
