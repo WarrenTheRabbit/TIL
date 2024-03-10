@@ -135,7 +135,7 @@ This means I can use the `Runnable` protocol to modify, invoke, compose, trigger
 
 <hr>
 
-I can **call** it with an input:
+I can **call** it imperatively with an input:
 ```bash
 >>> add_runnable.invoke(2)
 3
@@ -196,7 +196,7 @@ Success!
 ```
 <hr>
 
-Because it is augmented by the `Runnable` interface, I can include `add_one` in the [LangChain Expression Language](https://api.python.langchain.com/en/latest/runnables/langchain_core.runnables.base.Runnable.html#lcel-and-composition), which is a declarative way to compose `Runnable` objects into [chain](https://api.python.langchain.com/en/latest/langchain_api_reference.html#module-langchain.chains).
+Because it is augmented by the `Runnable` interface, I can include `add_one` in the [LangChain Expression Language](https://api.python.langchain.com/en/latest/runnables/langchain_core.runnables.base.Runnable.html#lcel-and-composition), which is a declarative way to compose `Runnable` objects into a [chain](https://api.python.langchain.com/en/latest/langchain_api_reference.html#module-langchain.chains).
 ```bash
 >>> (add_runnable | add_runnable).invoke(0)
 2
