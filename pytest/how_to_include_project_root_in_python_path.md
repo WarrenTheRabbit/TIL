@@ -30,7 +30,7 @@ pythonpath = .
 ```
 
 ### Solution 2
-Create a `pyproject.toml' file in the root folder with the entry
+Create a `pyproject.toml` file in the root folder with the entry
 
 ```
 [tool.pytest.ini_options]
