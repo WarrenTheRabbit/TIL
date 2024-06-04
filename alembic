@@ -1,0 +1,8 @@
+If I have structured my application to import from the root directory, I have to add the root directory to the pythonpath searched by the Python runtime launched by alembic.
+
+```python
+# migrations/env.py
+
+import os, sys
+sys.path.insert(0, os.path.realpath(os.path.join(os.path.dirname(__file__), '..')))
+```
